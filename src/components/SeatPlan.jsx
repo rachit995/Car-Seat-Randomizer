@@ -2,6 +2,10 @@ import React from 'react'
 import './SeatPlan.scss'
 import steeringWheel from '../assets/images/car-steering-wheel.svg'
 
+function Text({ children }) {
+  return <p key={children} className='fade'>{children}</p>
+}
+
 function SeatPlan({
   seater,
   driver,
@@ -25,7 +29,9 @@ function SeatPlan({
           </h4>
           <div className='seatPlan__row'>
             <div className={`seatPlan__seat frontLeft ${seat1 ? null : 'empty'}`}>
-              {seat1}
+              <Text>
+                {seat1}
+              </Text>
             </div>
             <div className='seatPlan__spacer'>
               <img src={car?.image} alt='steering wheel' className='seatPlan__carLogo' />
@@ -40,13 +46,19 @@ function SeatPlan({
           </div>
           <div className='seatPlan__row'>
             <div className={`seatPlan__seat rearLeft ${seat2 ? null : 'empty'}`}>
-              {seat2}
+              <Text>
+                {seat2}
+              </Text>
             </div>
             <div className={`seatPlan__seat rearCenter ${seat3 ? null : 'empty'}`}>
-              {seat3}
+              <Text>
+                {seat3}
+              </Text>
             </div>
             <div className={`seatPlan__seat rearRight ${seat4 ? null : 'empty'}`}>
-              {seat4}
+              <Text>
+                {seat4}
+              </Text>
             </div>
           </div>
         </div>
