@@ -5,12 +5,13 @@ import { SHEET_ID } from './constants';
 import { fetchData, shuffleArray, chunkify } from './helper';
 import { FaRandom } from 'react-icons/fa'
 import SeatPlan from './components/SeatPlan';
-import { Snackbar, Switch } from '@material-ui/core';
+import { CircularProgress, Snackbar, Switch } from '@material-ui/core';
 const SHEETS = {
   PASSENGER: 1,
   CAR: 2,
 }
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
   const [passengers, setPassengers] = useState([])
   const [drivers, setDrivers] = useState([])
   const [uniform, setUniform] = useState(true)
@@ -29,6 +30,7 @@ function App() {
       setPassengers(tempPassengers)
       setDrivers(tempDrivers)
       setCars(tempCars)
+      setIsLoading(false)
     })()
   }, [])
   const [shuffledPeople, setShuffledPeople] = useState([])
@@ -58,7 +60,7 @@ function App() {
           onClick={() => {
             setShuffledPeople(shuffleArray(chunkify(shuffleArray(passengers), cars?.length, uniform)))
           }}
-          className="app__randomButton"
+          className="app__randomButton fadeInUp"
         >
           <FaRandom /> Randomize
         </button>
@@ -66,19 +68,27 @@ function App() {
       <div className='app__content'>
         <div className='app__row'>
           {
-            cars?.map((car, index) => {
-              const driver = _.find(drivers, { car: car?.car })
-              return (
-                <div span={12} key={car?.car} className="app__col">
-                  <SeatPlan
-                    seater={car?.seater}
-                    car={car}
-                    driver={driver}
-                    passengers={shuffledPeople[index]}
-                  />
-                </div>
-              )
-            })
+            isLoading ?
+              <div className="app__col">
+                <CircularProgress color="default" />
+              </div>
+              : cars?.map((car, index) => {
+                const driver = _.find(drivers, { car: car?.car })
+                return (
+                  <div
+                    key={car?.car}
+                    className="app__col fadeInUp"
+                    style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                  >
+                    <SeatPlan
+                      seater={car?.seater}
+                      car={car}
+                      driver={driver}
+                      passengers={shuffledPeople[index]}
+                    />
+                  </div>
+                )
+              })
           }
         </div>
       </div>
