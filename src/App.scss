@@ -9,7 +9,7 @@ body {
   background-size: cover;
 }
 .app__content {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .app__col {
@@ -76,4 +76,9 @@ button:focus {
       font-weight: 700;
     }
   }
+}
+
+.app__uniformSwitch {
+  text-align: center;
+  margin: 0 0 2rem 0;
 }

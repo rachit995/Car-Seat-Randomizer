@@ -5,6 +5,7 @@ import { SHEET_ID } from './constants';
 import { fetchData, shuffleArray, chunkify } from './helper';
 import { FaRandom } from 'react-icons/fa'
 import SeatPlan from './components/SeatPlan';
+import { Snackbar, Switch } from '@material-ui/core';
 const SHEETS = {
   PASSENGER: 1,
   CAR: 2,
@@ -12,6 +13,9 @@ const SHEETS = {
 function App() {
   const [passengers, setPassengers] = useState([])
   const [drivers, setDrivers] = useState([])
+  const [uniform, setUniform] = useState(true)
+  const [open, setOpen] = useState(false)
+  const snackBarText = uniform ? "Switched to uniform distribution" : "Switched to random distribution"
   const [cars, setCars] = useState([])
   useEffect(() => {
     ; (async () => {
@@ -29,10 +33,20 @@ function App() {
   }, [])
   const [shuffledPeople, setShuffledPeople] = useState([])
   useEffect(() => {
-    setShuffledPeople(shuffleArray(chunkify(passengers, cars?.length, true)))
-  }, [passengers, cars?.length])
+    setShuffledPeople(shuffleArray(chunkify(passengers, cars?.length, uniform)))
+  }, [passengers, cars?.length, uniform])
   return (
     <div>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+        message={snackBarText}
+      />
       <div className='app__header'>
         <h1>
           Car Seat Randomizer
@@ -42,7 +56,7 @@ function App() {
         <button
           type="primary"
           onClick={() => {
-            setShuffledPeople(shuffleArray(chunkify(shuffleArray(passengers), cars?.length, true)))
+            setShuffledPeople(shuffleArray(chunkify(shuffleArray(passengers), cars?.length, uniform)))
           }}
           className="app__randomButton"
         >
@@ -67,6 +81,16 @@ function App() {
             })
           }
         </div>
+      </div>
+      <div className='app__uniformSwitch'>
+        <Switch
+          checked={uniform}
+          color='secondary'
+          onChange={() => {
+            setOpen(true)
+            setUniform(!uniform)
+          }}
+        />
       </div>
     </div>
   );
