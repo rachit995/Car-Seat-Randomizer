@@ -1,0 +1,49 @@
+.app__content {
+  background-color: white;
+}
+
+.app__col {
+  place-items: center;
+  display: grid;
+  margin: 24px 0;
+}
+
+.app__row {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  height: 70vh;
+}
+
+.app__header {
+  height: 10vh;
+  place-items: center;
+  display: grid;
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+.app__randomButton {
+  font-size: large;
+  background-color: #4b9dfb;
+  border: none;
+  border-radius: 2rem;
+  padding: 12px 48px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+  place-items: center;
+  display: flex;
+  margin: 0 0 32px 0;
+  cursor: pointer;
+
+  svg {
+    margin-right: 8px;
+  }
+}
+button:focus {
+  outline: none;
+}
