@@ -1,6 +1,5 @@
 .seatPlan {
   &__car {
-    width: calc(360px + 42px);
     border-radius: 3rem;
     padding: 16px;
     background-color: #f3f6ff;
@@ -72,5 +71,22 @@
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .seatPlan {
+    &__seat {
+      height: 80px;
+      width: 80px;
+      font-size: 0.8rem;
+    }
+    &__steeringWheel {
+      width: 25px;
+      margin: 8px;
+    }
+  }
+  &__row {
+    grid-auto-rows: minmax(80px, auto);
   }
 }
