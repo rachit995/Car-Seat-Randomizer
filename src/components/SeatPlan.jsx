@@ -33,6 +33,7 @@ function SeatPlan({
             <div className='seatPlan__seat frontRight driver'>
               <div>
                 <img src={steeringWheel} alt='steering wheel' className='seatPlan__steeringWheel' />
+                <br />
                 {driver?.name}
               </div>
             </div>
