@@ -83,10 +83,13 @@
     }
     &__steeringWheel {
       width: 25px;
-      margin: 8px;
+      margin: 4px;
+    }
+    &__row {
+      grid-auto-rows: minmax(80px, auto);
     }
   }
-  &__row {
-    grid-auto-rows: minmax(80px, auto);
+  .seatPlan__car {
+    box-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
   }
 }

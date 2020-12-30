@@ -1,5 +1,6 @@
 .app__content {
   background-color: white;
+  height: 100vh;
 }
 
 .app__col {
@@ -23,6 +24,7 @@
   h1 {
     font-size: 2rem;
     text-align: center;
+    font-weight: 500;
   }
 }
 
@@ -54,6 +56,12 @@ button:focus {
   }
 
   .app__col {
-    margin: 0;
+    margin: 8px 0;
+  }
+  .app__header {
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
   }
 }
