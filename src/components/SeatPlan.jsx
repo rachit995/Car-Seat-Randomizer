@@ -30,7 +30,7 @@ function SeatPlan({
             <div className='seatPlan__spacer'>
               <img src={car?.image} alt='steering wheel' className='seatPlan__carLogo' />
             </div>
-            <div className='seatPlan__seat frontRight'>
+            <div className='seatPlan__seat frontRight driver'>
               <div>
                 <img src={steeringWheel} alt='steering wheel' className='seatPlan__steeringWheel' />
                 {driver?.name}

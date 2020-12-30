@@ -24,10 +24,20 @@
     font-weight: 600;
     text-align: center;
     transition: all 0.3s;
+    border: 2px solid #718db2;
+    color: #718db2;
+  }
+
+  &__seat.driver {
+    background-color: #4b9dfb;
+    border: 2px solid #4b9dfb;
+    color: #f3f6ff;
+    font-weight: 700;
   }
 
   &__seat.empty {
-    background-color: #eee;
+    background-color: #d4daea;
+    border: 2px solid #d4daea;
   }
 
   &__seat:hover {
@@ -71,6 +81,7 @@
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
+    color: #2a314d;
   }
 }
 
@@ -79,6 +90,7 @@
     &__seat {
       height: 80px;
       width: 80px;
+      font-weight: 700;
       font-size: 0.8rem;
     }
     &__steeringWheel {
@@ -87,6 +99,9 @@
     }
     &__row {
       grid-auto-rows: minmax(80px, auto);
+    }
+    &__seat.driver {
+      font-size: 0.7rem;
     }
   }
   .seatPlan__car {

@@ -1,6 +1,13 @@
+body {
+  background: rgb(180, 204, 232);
+  background: linear-gradient(
+    135deg,
+    rgba(180, 204, 232, 1) 0%,
+    rgba(74, 115, 159, 1) 100%
+  );
+}
 .app__content {
-  background-color: white;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .app__col {
@@ -24,22 +31,25 @@
   h1 {
     font-size: 2rem;
     text-align: center;
-    font-weight: 500;
+    font-weight: 700;
+    color: #f9faff;
+    text-transform: uppercase;
   }
 }
 
 .app__randomButton {
   font-size: large;
-  background-color: #4b9dfb;
+  background-color: #f9faff;
   border: none;
   border-radius: 2rem;
   padding: 12px 48px;
   font-weight: 600;
-  color: #fff;
+  color: #2a314d;
   box-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
   place-items: center;
   display: flex;
   margin: 0 0 32px 0;
+  text-transform: uppercase;
   cursor: pointer;
 
   svg {
@@ -61,7 +71,7 @@ button:focus {
   .app__header {
     h1 {
       font-size: 1.5rem;
-      font-weight: 500;
+      font-weight: 700;
     }
   }
 }
