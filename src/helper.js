@@ -25,6 +25,7 @@ export function shuffleArray(array) {
 }
 
 export function chunkify(a, n, balanced) {
+  const ni = n
   if (n < 2)
     return [a];
   var len = a.length,
@@ -52,6 +53,11 @@ export function chunkify(a, n, balanced) {
       out.push(a.slice(i, i += size));
     }
     out.push(a.slice(size * n));
+  }
+  if (out.length < ni) {
+    for (let i = 0; i < (ni - out.length + 1); i++) {
+      out.push([])
+    }
   }
   return out;
 }

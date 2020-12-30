@@ -5,6 +5,8 @@ body {
     rgba(180, 204, 232, 1) 0%,
     rgba(74, 115, 159, 1) 100%
   );
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .app__content {
   min-height: 100vh;
